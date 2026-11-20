@@ -12,14 +12,13 @@ const { title, description, detail, icon } = Astro.props;
 <article class="service-card">
 	<div class="service-card-top">
 		<div class="service-icon" aria-hidden="true"><span>{icon}</span></div>
-		<span class="service-arrow" aria-hidden="true">↗</span>
 	</div>
 	<div>
 		<p class="service-detail">{detail}</p>
 		<h3>{title}</h3>
 		<p class="service-description">{description}</p>
 		<div class="service-card-bottom">
-			<p>Student-led digital work</p>
+			<p>Student led digital work</p>
 			<a href="#contact" aria-label={`Ask about ${title}`}>Discuss <span aria-hidden="true">→</span></a>
 		</div>
 	</div>

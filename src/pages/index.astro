@@ -11,15 +11,25 @@ import Services from "../sections/Services.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="theme-color" content="#F4F6F1" />
+		<meta name="theme-color" content="#F7F4ED" />
+		<script is:inline>
+			try {
+				const savedTheme = localStorage.getItem("neatify-theme");
+				if (savedTheme === "light" || savedTheme === "dark") {
+					document.documentElement.dataset.theme = savedTheme;
+				}
+			} catch (error) {
+				console.error("Unable to read the saved theme preference.", error);
+			}
+		</script>
 		<meta
 			name="description"
-			content="NEATIFY is an Information Systems student studio offering web, design, database, and digital solution services."
+			content="NETIFY is an Information Systems student studio offering web, design, database, and digital solution services."
 		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,7 +38,7 @@ import Services from "../sections/Services.astro";
 			rel="stylesheet"
 		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>NEATIFY — Student-led digital solutions</title>
+		<title>NETIFY Student led digital solutions</title>
 	</head>
 	<body>
 		<div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -36,8 +46,8 @@ import Services from "../sections/Services.astro";
 		<main>
 			<Hero />
 			<Services />
-			<Process />
 			<Projects />
+			<Process />
 			<About />
 			<Contact />
 		</main>

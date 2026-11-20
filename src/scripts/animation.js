@@ -11,6 +11,7 @@ const closeMenu = () => {
 
 	toggle?.setAttribute("aria-expanded", "false");
 	toggle?.setAttribute("aria-label", "Open navigation");
+	if (toggle) toggle.textContent = "Menu";
 	navigation?.classList.remove("is-open");
 };
 
@@ -21,12 +22,36 @@ document.querySelector(".menu-toggle")?.addEventListener("click", (event) => {
 
 	toggle.setAttribute("aria-expanded", String(isOpen));
 	toggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+	toggle.textContent = isOpen ? "Close" : "Menu";
 	navigation?.classList.toggle("is-open", isOpen);
 });
 
 document.querySelectorAll(".site-nav a").forEach((link) => {
 	link.addEventListener("click", closeMenu);
 });
+
+const themeToggle = document.querySelector(".theme-toggle");
+
+if (themeToggle instanceof HTMLButtonElement) {
+	const setTheme = (theme) => {
+		const isDark = theme === "dark";
+		document.documentElement.dataset.theme = theme;
+		themeToggle.setAttribute("aria-pressed", String(isDark));
+		themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+		document.querySelector('meta[name="theme-color"]')?.setAttribute("content", isDark ? "#111813" : "#F7F4ED");
+
+		try {
+			localStorage.setItem("neatify-theme", theme);
+		} catch (error) {
+			console.error("Unable to save the theme preference.", error);
+		}
+	};
+
+	setTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
+	themeToggle.addEventListener("click", () => {
+		setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+	});
+}
 
 document.addEventListener("keydown", (event) => {
 	if (event.key === "Escape") closeMenu();
