@@ -1,16 +1,49 @@
 ---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import About from "../sections/About.astro";
+import Contact from "../sections/Contact.astro";
+import Footer from "../sections/Footer.astro";
+import Hero from "../sections/Hero.astro";
+import Process from "../sections/Process.astro";
+import Projects from "../sections/Projects.astro";
+import Services from "../sections/Services.astro";
 ---
 
+<!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<meta name="theme-color" content="#F4F6F1" />
+		<meta
+			name="description"
+			content="NEATIFY is an Information Systems student studio offering web, design, database, and digital solution services."
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>NEATIFY — Student-led digital solutions</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<div class="scroll-progress" aria-hidden="true"><span></span></div>
+		<Header />
+		<main>
+			<Hero />
+			<Services />
+			<Process />
+			<Projects />
+			<About />
+			<Contact />
+		</main>
+		<Footer />
+		<script>
+			import "../scripts/animation.js";
+		</script>
 	</body>
 </html>

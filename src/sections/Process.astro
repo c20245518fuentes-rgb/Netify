@@ -1,0 +1,28 @@
+---
+const steps = [
+	{ number: "01", title: "Understand", description: "We listen, research the problem, and learn who the solution needs to serve." },
+	{ number: "02", title: "Plan", description: "We map requirements, sketch possible approaches, and agree on a clear scope." },
+	{ number: "03", title: "Build & learn", description: "We develop a thoughtful prototype, share progress, and improve it with feedback." },
+];
+---
+
+<section class="process-section section-wrap" id="how-it-works" data-reveal>
+	<div class="section-heading">
+		<div>
+			<p class="eyebrow">Our approach</p>
+			<h2>From the first question<br /><span>to a working idea.</span></h2>
+		</div>
+		<p class="section-aside">We use an organized, collaborative process that keeps the people and purpose behind each project in view.</p>
+	</div>
+	<ol class="process-grid">
+		{steps.map((step) => (
+			<li>
+				<span class="process-number">{step.number}</span>
+				<div class="process-line"></div>
+				<h3>{step.title}</h3>
+				<p>{step.description}</p>
+			</li>
+		))}
+	</ol>
+	<a class="button button-outline" href="#projects">See student projects <span aria-hidden="true">↗</span></a>
+</section>

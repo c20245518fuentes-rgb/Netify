@@ -1,0 +1,44 @@
+---
+import Card from "../components/Card.astro";
+
+const services = [
+	{
+		title: "Web design & development",
+		description: "Responsive websites that clearly communicate an idea, service, or organization.",
+		detail: "DESIGN / DEVELOPMENT",
+		icon: "WEB",
+	},
+	{
+		title: "UI/UX & prototyping",
+		description: "User flows, wireframes, and interactive prototypes to test an experience early.",
+		detail: "RESEARCH / INTERFACE",
+		icon: "UX",
+	},
+	{
+		title: "Database & information systems",
+		description: "Organized data models and practical systems that support everyday processes.",
+		detail: "DATA / SYSTEMS",
+		icon: "DB",
+	},
+	{
+		title: "IT setup & digital support",
+		description: "Friendly help with software setup, troubleshooting, and choosing digital tools.",
+		detail: "TECHNOLOGY / SUPPORT",
+		icon: "IT",
+	},
+];
+---
+
+<section class="services-section section-wrap" id="services" data-reveal>
+	<div class="section-heading">
+		<div>
+			<p class="eyebrow">What we can offer</p>
+			<h2>People, process,<br /><span>and technology.</span></h2>
+		</div>
+		<p class="section-aside">Our Information Systems background helps us look at both the people using a solution and the technology behind it.</p>
+	</div>
+	<div class="service-grid">
+		{services.map((service) => <Card {...service} />)}
+	</div>
+	<p class="services-note">We are students building our skills through coursework and projects. Services are offered as student-led work and are scoped together before starting.</p>
+</section>
