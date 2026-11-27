@@ -54,6 +54,9 @@ import Services from "../sections/Services.astro";
 		<Footer />
 		<script>
 			import "../scripts/animation.js";
+			import { FallingLeaves } from "falling-leaves";
+
+			new FallingLeaves({ shapes: ["maple", "oak", "ginkgo", "birch", "oval"] });
 		</script>
 	</body>
 </html>
